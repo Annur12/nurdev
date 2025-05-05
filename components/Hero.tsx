@@ -22,7 +22,7 @@ const Hero = () => {
           <p className="text-center italic md:tracking-wider text-sm md:text-lg lg:text-xl">
             Hi!{" "}
             <span className="text-neutral-400">
-              I'm Nur Manggona - a Full Stack Developer.
+              I&apos;m Nur Manggona - a Full Stack Developer.
             </span>{" "}
             I create <br /> modern and responsive web applications.
           </p>

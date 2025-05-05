@@ -2,19 +2,6 @@ import { projects } from "@/data";
 import { PinContainer } from "./ui/Pin";
 import { CiLocationArrow1 } from "react-icons/ci";
 
-const getRandomColor = () => {
-  const colors = [
-    "#E57373",
-    "#64B5F6",
-    "#81C784",
-    "#FFD54F",
-    "#BA68C8",
-    "#4DB6AC",
-    "#FF8A65",
-  ];
-  return colors[Math.floor(Math.random() * colors.length)];
-};
-
 const Card = () => {
   return (
     <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">

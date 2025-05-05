@@ -15,7 +15,6 @@ import {
   MobileNavHeader,
   MobileNavToggle,
   MobileNavMenu,
-  NavbarButton,
 } from "@/components/ui/resizableNavbar";
 import { navLinks } from "@/data";
 import { useState } from "react";

@@ -99,7 +99,7 @@ const IndustryVisit = () => {
               <Image
                 src={`/images/tour-${i}.jpg`}
                 alt={`Tour highlight ${i}`}
-                fill // Covers the parent dimensions
+                fill
                 className="object-cover group-hover:scale-105 transition-transform"
                 sizes="(max-width: 768px) 50vw, 33vw"
               />

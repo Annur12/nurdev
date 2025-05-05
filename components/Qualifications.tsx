@@ -9,8 +9,8 @@ const Qualifications = () => {
         What I&apos;ve Accomplished
       </h1>
       <p className="mt-6 text-gray-400 text-[16px] max-w-xl">
-        In this section you'll find a summary of my practical experience, formal
-        education, and technical certifications.
+        In this section you&apos;ll find a summary of my practical experience,
+        formal education, and technical certifications.
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">

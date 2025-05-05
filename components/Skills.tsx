@@ -10,8 +10,8 @@ const Skills = () => {
 
       <p className="mt-6 text-gray-400 text-[16px] max-w-xl">
         I enjoy building web apps that are fast, responsive, and user-friendly.
-        I'm always exploring ways to write better code, improve user experience,
-        and grow as a developer.
+        I&apos;m always exploring ways to write better code, improve user
+        experience, and grow as a developer.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 px-4">

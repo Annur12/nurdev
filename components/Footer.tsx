@@ -1,4 +1,4 @@
-import { navLinks, socialLinks } from "@/data";
+import { socialLinks } from "@/data";
 import Link from "next/link";
 
 import * as Icons from "react-icons/fa";
