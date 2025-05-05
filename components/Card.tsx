@@ -1,6 +1,7 @@
 import { projects } from "@/data";
 import { PinContainer } from "./ui/Pin";
 import { CiLocationArrow1 } from "react-icons/ci";
+import Image from "next/image";
 
 const Card = () => {
   return (
@@ -16,12 +17,13 @@ const Card = () => {
                 className="relative w-full h-full overflow-hidden lg:rounded-3xl"
                 style={{ backgroundColor: "#13162D" }}
               >
-                <img src="/images/bg.png" alt="bgimg" />
+                <Image src="/images/bg.png" alt="bgimg" fill />
               </div>
-              <img
+              <Image
                 src={item.image}
                 alt={item.title}
-                className="z-10 absolute bottom-0 object-cover w-full h-full rounded-md"
+                fill
+                className="z-10 absolute bottom-0 object-cover rounded-md"
               />
             </div>
 
