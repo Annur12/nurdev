@@ -1,6 +1,30 @@
+"use client";
+
 import { useState } from "react";
 import { qualifications } from "@/data";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+
+type QualificationItemType = {
+  degree?: string;
+  role?: string;
+  name?: string;
+  subtitle?: string;
+  institution?: string;
+  company?: string;
+  issuer?: string;
+  duration?: string;
+  details: string[];
+  technologies?: string[];
+  link?: string;
+};
+
+type QualificationSectionProps = {
+  section: {
+    id: string | number;
+    title: string;
+    items: QualificationItemType[];
+  };
+};
 
 const Qualifications = () => {
   return (
@@ -22,7 +46,7 @@ const Qualifications = () => {
   );
 };
 
-const QualificationSection = ({ section }) => {
+const QualificationSection = ({ section }: QualificationSectionProps) => {
   const [expanded, setExpanded] = useState(false);
   const initialItemsToShow = 2;
   const itemsToDisplay = expanded
@@ -65,7 +89,7 @@ const QualificationSection = ({ section }) => {
   );
 };
 
-const QualificationItem = ({ item }) => {
+const QualificationItem = ({ item }: { item: QualificationItemType }) => {
   return (
     <div className="relative border-l-2 border-neutral-700 hover:border-blue-500 transition-colors duration-200 pl-5 py-1">
       <div className="absolute -left-[7px] -top-1 w-3 h-3 rounded-full bg-blue-500 border-2 border-neutral-600 group-hover:border-blue-400 transition-colors duration-300"></div>
@@ -96,7 +120,7 @@ const QualificationItem = ({ item }) => {
         <div className="mt-3 space-y-2">
           {item.technologies && (
             <div className="flex flex-wrap gap-2">
-              {item.technologies.map((tech, i) => (
+              {item.technologies.map((tech: string, i: number) => (
                 <span
                   key={i}
                   className="bg-neutral-800/60 text-xs px-2 py-1 rounded hover:bg-blue-900/30 transition-colors duration-200"
