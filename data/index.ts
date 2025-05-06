@@ -89,6 +89,15 @@ export const technologies = [
 export const projects = [
   {
     id: 1,
+    title: "Blog App",
+    description:
+      "A simple blog application designed to document and share experiences during our 8-day ndustry visit.",
+    stacks: ["NextJS", "Tailwind"],
+    image: "/images/blog.png",
+    link: "https://nur-blogapp-mnh7v7hp0-annols-projects.vercel.app/",
+  },
+  {
+    id: 2,
     title: "E-commerce Website",
     description:
       "A simple online store we built for our Elective 2 subject. It includes user login, product listings, and a shopping cart system — all built from scratch.",
@@ -97,7 +106,7 @@ export const projects = [
     link: "#Ecommerce",
   },
   {
-    id: 2,
+    id: 3,
     title: "Deep-Well Water Source Mapping Management System",
     description:
       "Our Capstone Project — a web-based system that helps map and manage deep-well water sources in local areas. It supports data collection, location visualization, and efficient resource tracking.",
@@ -106,7 +115,7 @@ export const projects = [
     link: "#DeepWell",
   },
   {
-    id: 3,
+    id: 4,
     title: "Lost & Found Management System",
     description:
       "Our Capstone Project — a web-based system that helps map and manage deep-well water sources in local areas. It supports data collection, location visualization, and efficient resource tracking.",
@@ -116,7 +125,7 @@ export const projects = [
   },
 
   {
-    id: 4,
+    id: 5,
     title: "Individual Performance Commitment and Review System",
     description:
       "We developed an Individual Performance Commitment and Review (IPCR) system for our university to help teachers manage their performance evaluations more efficiently.The system allows faculty members to input, track, and review their goals and accomplishments in one place.",

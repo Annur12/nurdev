@@ -118,7 +118,11 @@ const IndustryVisit = () => {
             clockwise={false}
             className="flex items-center justify-center"
           >
-            <Link className="text-sm text-white-200" href="#tour">
+            <Link
+              target="_blank"
+              className="text-sm text-white-200"
+              href="https://nur-blogapp-mnh7v7hp0-annols-projects.vercel.app/"
+            >
               View Full Tour
             </Link>
             <CiLocationArrow1 className="ml-2" />
