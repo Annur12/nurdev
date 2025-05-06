@@ -121,7 +121,7 @@ const IndustryVisit = () => {
             <Link
               target="_blank"
               className="text-sm text-white-200"
-              href="https://nur-blogapp-mnh7v7hp0-annols-projects.vercel.app/"
+              href="https://nur-blogapp.vercel.app/"
             >
               View Full Tour
             </Link>

@@ -94,7 +94,7 @@ export const projects = [
       "A simple blog application designed to document and share experiences during our 8-day ndustry visit.",
     stacks: ["NextJS", "Tailwind"],
     image: "/images/blog.png",
-    link: "https://nur-blogapp-mnh7v7hp0-annols-projects.vercel.app/",
+    link: "https://nur-blogapp.vercel.app/",
   },
   {
     id: 2,
