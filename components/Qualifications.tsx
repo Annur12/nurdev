@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { qualifications } from "@/data";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import Link from "next/link";
+import Image from "next/image";
 
 type QualificationItemType = {
   degree?: string;
@@ -16,6 +19,7 @@ type QualificationItemType = {
   details: string[];
   technologies?: string[];
   link?: string;
+  image?: string;
 };
 
 type QualificationSectionProps = {
@@ -90,60 +94,121 @@ const QualificationSection = ({ section }: QualificationSectionProps) => {
 };
 
 const QualificationItem = ({ item }: { item: QualificationItemType }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <div className="relative border-l-2 border-neutral-700 hover:border-blue-500 transition-colors duration-200 pl-5 py-1">
-      <div className="absolute -left-[7px] -top-1 w-3 h-3 rounded-full bg-blue-500 border-2 border-neutral-600 group-hover:border-blue-400 transition-colors duration-300"></div>
+    <>
+      {/* Qualification Item */}
+      <div className="relative border-l-2 border-neutral-700 hover:border-blue-500 transition-colors duration-200 pl-5 py-1 group">
+        <div className="absolute -left-[7px] -top-1 w-3 h-3 rounded-full bg-blue-500 border-2 border-neutral-600 group-hover:border-blue-400 transition-colors duration-300"></div>
 
-      <div className="ml-2">
-        <h3 className="font-medium text-neutral-100 hover:text-blue-400 transition-colors duration-200">
-          {item.degree || item.role || item.name || item.subtitle}
-        </h3>
+        <div className="ml-2">
+          <h3 className="font-medium text-neutral-100 hover:text-blue-400 transition-colors duration-200">
+            {item.degree || item.role || item.name || item.subtitle}
+          </h3>
 
-        <p className="text-neutral-400 text-sm mt-1">
-          {item.institution || item.company || item.issuer}
-          {item.duration && (
-            <span className="ml-2 text-neutral-500">• {item.duration}</span>
-          )}
-        </p>
+          <p className="text-neutral-400 text-sm mt-1">
+            {item.institution || item.company || item.issuer}
+            {item.duration && (
+              <span className="ml-2 text-neutral-500">• {item.duration}</span>
+            )}
+          </p>
 
-        <ul className="text-gray-400 text-sm mt-2 space-y-1">
-          {item.details.map((detail: string, i: number) => (
-            <li
-              key={i}
-              className="relative pl-4 before:absolute before:left-1 before:top-2 before:w-1.5 before:h-1.5 before:rounded-full before:bg-blue-400"
-            >
-              {detail}
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-3 space-y-2">
-          {item.technologies && (
-            <div className="flex flex-wrap gap-2">
-              {item.technologies.map((tech: string, i: number) => (
-                <span
+          {item.details && item.details.length > 0 && (
+            <ul className="text-gray-400 text-sm mt-2 space-y-1">
+              {item.details.map((detail: string, i: number) => (
+                <li
                   key={i}
-                  className="bg-neutral-800/60 text-xs px-2 py-1 rounded hover:bg-blue-900/30 transition-colors duration-200"
+                  className="relative pl-4 before:absolute before:left-1 before:top-2 before:w-1.5 before:h-1.5 before:rounded-full before:bg-blue-400"
                 >
-                  {tech}
-                </span>
+                  {detail}
+                </li>
               ))}
-            </div>
+            </ul>
           )}
 
-          {item.link && (
-            <a
-              href={item.link}
-              className="inline-block text-xs text-blue-400 hover:text-blue-300 mt-1 transition-colors duration-200"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Credential →
-            </a>
-          )}
+          <div className="mt-3 space-y-2">
+            {item.technologies && item.technologies.length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {item.technologies.map((tech: string, i: number) => (
+                  <span
+                    key={i}
+                    className="bg-neutral-800/60 text-xs px-2 py-1 rounded hover:bg-blue-900/30 transition-colors duration-200"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {item.image && (
+              <div className="mt-2">
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="focus:outline-none text-left"
+                >
+                  <div className="relative max-w-[200px] rounded border border-neutral-700 overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                    <Image
+                      src={item.image}
+                      alt={`${item.degree || item.name} Certificate`}
+                      width={400}
+                      height={300}
+                      className="object-cover"
+                      quality={80}
+                      placeholder="blur"
+                      blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg=="
+                    />
+                  </div>
+                </button>
+              </div>
+            )}
+
+            {item.link && (
+              <Link
+                href={item.link}
+                className="inline-block text-xs text-blue-400 hover:text-blue-300 mt-1 transition-colors duration-200"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Credential →
+              </Link>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
+            onClick={() => setIsModalOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.95 }}
+              className="relative w-full max-w-4xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative w-full aspect-[4/3] max-h-[80vh]">
+                <Image
+                  src={item.image || ""}
+                  alt={`${item.degree || item.name} Certificate - Full View`}
+                  fill
+                  className="object-contain"
+                  quality={100}
+                  priority
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

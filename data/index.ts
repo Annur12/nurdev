@@ -1,3 +1,5 @@
+import { image } from "motion/react-client";
+
 export const navLinks = [
   {
     name: "About",
@@ -226,7 +228,9 @@ export const qualifications = [
       {
         name: "Meta JavaScript Basics",
         issuer: "Coursera",
-        duration: "2023",
+        duration: "2024",
+        image: "/images/certificate1.png",
+        link: "https://coursera.org/share/13d716c5b87f490e2bf45f331c696503",
         details: [
           "Covered modern ES6+ syntax",
           "DOM manipulation techniques",
@@ -236,11 +240,26 @@ export const qualifications = [
       {
         name: "Meta React.js Fundamentals",
         issuer: "Coursera",
-        duration: "2023",
+        duration: "2024",
+        image: "/images/certificate2.png",
+        link: "https://coursera.org/share/019ac6e05cb3d30e657250b075562bbd",
         details: [
           "Component-based architecture",
           "State management with hooks",
           "React router implementation",
+        ],
+      },
+      {
+        name: "Responsive Web Design",
+        issuer: "FreeCodeCamp",
+        duration: "2025",
+        image: "/images/freecodecamp.png",
+        link: "https://www.freecodecamp.org/certification/Annol/responsive-web-design",
+        details: [
+          "Completed foundational frontend development using HTML and CSS",
+          "Built over 10 responsive web projects including forms, surveys, and landing pages",
+          "Mastered Flexbox and CSS Grid for responsive layouts",
+          "Final certification project: a fully responsive web page built from scratch",
         ],
       },
     ],
